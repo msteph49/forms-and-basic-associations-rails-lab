@@ -2,9 +2,18 @@
 
 <%= form_for @song  do |f| %>
   <%= f.label :title %>
-  <%= f.text_field :title %>
-  <br />
+  <%= f.text_field :title %><br/>
+  <%= f.label :artist_name %>
+  <%= f.text_field :artist_name %>
 
+  <h3>Select Genre</h3>
+  <%= f.collection_select :genre_id, @genres, :id, :name, prompt: true %>
+  
+  <h3>Create Note</h3>
+  <input name="song[note_contents][]" id="song_notes_1">
+  <input name="song[note_contents][]" id="song_notes_2">
+  <input name="song[note_contents][]" id="song_notes_3">
+  
   <%= f.submit %>
 <% end %>
 
